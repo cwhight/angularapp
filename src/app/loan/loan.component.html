@@ -1,0 +1,66 @@
+<div class="container pt-3">
+  <h2>Loans</h2>
+  <div class="row">
+    <div class="col-md-8 col-12">
+      <div class="pt-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Details</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let loan of loans">
+              <td>{{ loan.borrowerName }} </td>
+              <td><a class="btn btn-primary" routerLink="/loan/{{loan.id}}">Show details</a></td>
+              <td class="delete" title="delete loan"
+                  (click)="delete(loan)">
+                <div class="btn btn-danger">Delete this Loan</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4 col-12">
+      <form #loanForm="ngForm">
+        <h5>Add a new loan</h5>
+
+        <div class="w-100 form-group">
+          <label>
+            Name:
+          </label>
+          <input #borrowerName type="text" class="form-control" id="borrowerName" [(ngModel)]="model.borrowerName" name="borrowerName" />
+
+        </div>
+        <div class="w-100 form-group">
+          <label>
+            Repayment Amount:
+          </label>
+          <input #repaymentAmount type="text" class="form-control" id="repaymentAmount" [(ngModel)]="model.repaymentAmount" name="repaymentAmount" />
+
+        </div>
+        <div class="w-100 form-group">
+          <label>
+            Funding Amount:
+          </label>
+          <input #fundingAmount type="text" class="form-control" id="fundingAmount" [(ngModel)]="model.fundingAmount" name="fundingAmount" />
+
+        </div>
+
+        <!-- (click) passes input value to add() and then clears the input -->
+        <button type="submit" class="w-100 btn-primary btn" (click)="add(); borrowerName.value=''; repaymentAmount.value=''; fundingAmount.value=''">
+          Add
+        </button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+

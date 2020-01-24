@@ -1,0 +1,13 @@
+<div class="container pt-3">
+  <div *ngIf="loan">
+    <h2>{{loan.borrowerName}}</h2>
+    <ul>
+      <li>Repayment Amount: {{loan.repaymentAmount}}</li>
+      <li>Funding Amount: {{loan.fundingAmount}}</li>  
+    </ul>
+  </div>
+
+
+  <button (click)="goBack()">Go Back</button>
+</div>
+
